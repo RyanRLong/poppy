@@ -1,3 +1,4 @@
+
 class Popup {
   constructor(text, container) {
     this.container = container;
@@ -9,6 +10,7 @@ class Popup {
     this.addClass("enter");
     this.setIdle(5000);
     this.setExit(10000);
+    this.setDestroy(11000);
   }
 
   addClass(className) {
@@ -34,6 +36,12 @@ class Popup {
       this.removeClass("idle");
       this.addClass("exit");
     }, miliseconds);
+  }
+
+  setDestroy(milliseconds){
+    setTimeout(()=>{
+      this.element.parentNode.removeChild(this.element);
+    }, milliseconds);
   }
 
   render() {
@@ -78,10 +86,10 @@ class Container {
 }
 
 const container = new Container();
-console.log(new Container());
 
 for (let i=0; i < 10; i++) {
   setTimeout(()=>{
-    new Popup(`Its now ${i + 1000}`, container);
+    const temp = new Popup(`Its now ${i + 1000}`, container);
+    console.log(temp);
   }, i*2000);
 }
