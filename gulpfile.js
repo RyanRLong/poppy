@@ -21,7 +21,8 @@ const
     vendor: [
     ],
     app: [
-      'app/js/**/*.js',
+      'app/js/src/**/*.js',
+      'app/js/index.js',
       '!app/js/**/*.spec.js'
     ]
   };
@@ -35,7 +36,7 @@ gulp.task('sass', (done) => {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(concat('styles.min.css'))
+    .pipe(concat('poppy.min.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
@@ -76,9 +77,9 @@ gulp.task('source', () => {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(concat('app.min.js', { newLine: ';' }))
+    .pipe(concat('poppy.min.js', { newLine: ';' }))
     .pipe(ngAnnotate({ add: true }))
-    //.pipe(uglify({ mangle: true }))
+    .pipe(uglify({ mangle: true }))
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));

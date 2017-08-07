@@ -4,12 +4,8 @@
         "es6": true
     },
     "globals": {
-        "angular": true,
-        "Highcharts": true,
-        "R": true,
-        "require": true,
-        "process": true,
-        "__dirname": true
+        "Container": true,
+        "Popup": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
