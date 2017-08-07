@@ -1,0 +1,8 @@
+node_modules
+app/lib
+test
+tests
+*.sublime-project
+*.sublime-workspace
+TESTS*.xml
+TODO.md
