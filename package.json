@@ -1,6 +1,6 @@
 {
   "name": "@saltycatfish/poppy",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Nice css/js popups",
   "main": "index.js",
   "scripts": {
