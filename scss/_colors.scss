@@ -1,0 +1,24 @@
+// Standard Pallet
+$black: #000000;
+$gray: #434343;
+
+//Standard Color Gradients
+$nice-blue-gradient: linear-gradient(#2e88c4, #075698);
+$nice-red-gradient: linear-gradient(#F00000, #DC281E);
+
+//Fancy Gradients
+$orange-sunkist-gradient: linear-gradient(#E44D26, #F16529);
+$blue-metal-gradient: linear-gradient(#667db6, #0082c8, #0082c8, #667db6);
+
+//Striped
+$danger-striped: repeating-linear-gradient( -55deg,
+#e52d27,
+#e52d27 10px,
+#b31217 10px,
+#b31217 20px);
+
+$black-gray-striped: repeating-linear-gradient( -55deg,
+$black,
+$black 10px,
+$gray 10px,
+$gray 20px);
