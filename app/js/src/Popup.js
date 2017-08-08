@@ -1,15 +1,11 @@
 class Popup { //eslint-disable-line
-  constructor(text) {
-    const self = this;
+  constructor(text, type = "ok") {
     this.container = document.getElementById("poppy_container") ? document.getElementById("poppy_container") : new Container();
     this.element = document.createElement('span');
-    this.element.setAttribute('class', 'popup');
+    this.element.setAttribute('class', `popup-${type}`);
     this.element.textContent = text;
     this.currentTimers = [];
-    this.element.onclick = function() {
-      self.clearAllTimers();
-      self.destroy();
-    };
+    this.onClick(this.deleteMe);
     this
       .attachCloseButton()
       .addClass("enter")
@@ -18,6 +14,7 @@ class Popup { //eslint-disable-line
       .setDestroy(60350)
       .render();
 
+    return Object.freeze(this);
   }
 
   addClass(className) {
@@ -28,6 +25,17 @@ class Popup { //eslint-disable-line
   removeClass(className) {
     this.element.classList.remove(className);
     return this;
+  }
+
+  onClick(func) {
+    this.element.onclick = func.bind(this);
+    return this;
+  }
+
+  deleteMe() {
+    this.clearAllTimers();
+    this.setExit(0);
+    this.setDestroy(250);
   }
 
   setIdle(milliseconds) {
