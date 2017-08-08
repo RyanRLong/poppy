@@ -8,13 +8,15 @@ Dead simple popup messages
 
 ## Usage
 Drop the poppy.min.css and poppy.min.js into your page
-  <script src="poppy.min.js"></script>
+    
+    <script src="poppy.min.js"></script>
 
-  (function(){
-    p = new Poppy();
-    p.error("This is an error message");
-  })();
+    (function(){
+      p = new Poppy();
+      p.error("This is an error message");
+    })();
 
 ## Author
 ** SaltyCatFish **
+
 Twitter: [@SaltyCatFish](http://twitter.com/SaltyCatFish)
