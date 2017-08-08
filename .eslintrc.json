@@ -5,7 +5,8 @@
     },
     "globals": {
         "Container": true,
-        "Popup": true
+        "Popup": true,
+        "require": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {

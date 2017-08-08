@@ -1,11 +1,24 @@
 @import 'colors';
+@import 'animations';
+@import 'flavors';
+@import 'states';
+@import 'components';
 
-#poppy_container {
+#poppy_wrapper {
   position: absolute;
   height: 100%;
   width: 25%;
   top: 0px;
   right: 0px;
+  overflow: hidden;
+}
+
+#poppy_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding-right: 17px;
 }
 
 [class*='popup-'] {
@@ -27,147 +40,3 @@
   font-size: 13px;
 }
 
-#poppy_container .popup-primary {
-  background: #283c86;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-  background: $nice-blue-gradient;
-}
-
-#poppy_container .popup-danger {
-  background: #283c86;
-  background: $nice-red-gradient;
-}
-
-#poppy_container .popup-warning {
-  background: #283c86;
-  background: $orange-sunkist-gradient;
-}
-
-
-#poppy_container .popup {
-  background: #283c86;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-  background: $nice-blue-gradient;
-  display: block;
-  width: 93%;
-  padding: 20px 10px;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  position: relative;
-  z-index: 1;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  -webkit-box-shadow: 10px 10px 25px -9px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 25px -9px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 25px -9px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 13px;
-}
-
-#poppy_container .popup:hover {
-  -webkit-animation-play-state: paused;
-  -moz-animation-play-state: paused;
-  -o-animation-play-state: paused;
-  animation-play-state: paused;
-}
-
-.enter {
-  -webkit-animation: fadeIn .25s;
-  animation: fadeIn .25s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1; //animation-direction: alternate;
-}
-
-.exit {
-  -webkit-animation: fadeOut .25s;
-  animation: fadeOut .25s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1; //animation-direction: alternate;
-}
-
-.idle {
-  -webkit-animation: halfIn 1s;
-  animation: halfIn 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1; //animation-direction: alternate;
-}
-
-.pause {
-  -webkit-animation: paused 1s;
-  animation: paused 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1; //animation-direction: alternate;
-}
-
-[class*='close-'] {
-  color: #fff;
-  font: 14px/100% arial, sans-serif;
-  position: absolute;
-  right: 10px;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #000;
-  top: 10px;
-}
-
-.close-classic:after {
-  content: 'X';
-  /* ANSI X letter */
-}
-
-.close-thin:after {
-  content: '×';
-  /* UTF-8 symbol */
-}
-
-.close-thik:after {
-  content: '✖';
-  /* UTF-8 symbol */
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    margin-top: -50px;
-  }
-  100% {
-    opacity: 1;
-    margin-top: 0px;
-  }
-}
-
-@keyframes halfIn {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: .25
-  }
-  ;
-}
-
-@keyframes fadeOut {
-  0% {
-    margin-left: 0px;
-    opacity: .25;
-  }
-  100% {
-    margin-left: 50px;
-    opacity: 0
-  }
-  ;
-}
-
-@keyframes paused {
-  0% {
-    opacity: .25;
-  }
-  1% {
-    opacity: 1
-  }
-  100% {
-    opacity: .25
-  }
-  ;
-}

@@ -1,0 +1,29 @@
+#poppy_container {
+  .popup-primary {
+    background: blue;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background: $nice-blue-gradient;
+  }
+
+  .popup-error {
+    background: red;
+    background: $nice-red-gradient;
+    font-weight: bolder;
+  }
+
+  .popup-warning {
+    background: orange;
+    background: $orange-sunkist-gradient;
+  }
+
+  .popup-danger {
+    background: crimson;
+    background: $danger-striped;
+    font-weight: bolder;
+  }
+
+  .popup-success {
+    background: green;
+    background: $green;
+  }
+}

@@ -1,0 +1,24 @@
+[class*='close-'] {
+  color: #fff;
+  font: 14px/100% arial, sans-serif;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #000;
+  top: 10px;
+}
+
+.close-classic:after {
+  content: 'X';
+  /* ANSI X letter */
+}
+
+.close-thin:after {
+  content: '×';
+  /* UTF-8 symbol */
+}
+
+.close-thik:after {
+  content: '✖';
+  /* UTF-8 symbol */
+}

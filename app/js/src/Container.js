@@ -10,16 +10,19 @@ class Container { //eslint-disable-line
 
   _createElement() {
     this.container = document.createElement('div');
+    this.wrapper = document.createElement('div');
     return this;
   }
 
   _setAttributes() {
     this.container.setAttribute('id', 'poppy_container');
+    this.wrapper.setAttribute('id', 'poppy_wrapper');
     return this;
   }
 
   _attachToDom() {
-    document.body.appendChild(this.container);
+    document.body.appendChild(this.wrapper);
+    this.wrapper.appendChild(this.container);
     return this;
   }
 }

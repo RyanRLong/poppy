@@ -1,0 +1,22 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  100% {
+    opacity: .85;
+    margin-top: 0px;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: .85;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  ;
+}

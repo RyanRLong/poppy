@@ -2,24 +2,22 @@
 //
 const
   gulp = require('gulp'),
-  gutil = require('gulp-util'),
   concat = require('gulp-concat'),
   sass = require('gulp-sass'),
   eslint = require('gulp-eslint'),
   webserver = require('gulp-webserver'),
   minifyCss = require('gulp-minify-css'),
-  rename = require('gulp-rename'),
   todo = require('gulp-todo'),
   babel = require('gulp-babel'),
   sourcemaps = require('gulp-sourcemaps'),
   ngAnnotate = require('gulp-ng-annotate'),
   uglify = require('gulp-uglify'),
-  plumber = require('gulp-plumber'),
+  plumber = require('gulp-plumber');
 
+const
   paths = {
     sass: ['./scss/**/*.scss'],
-    vendor: [
-    ],
+    vendor: [],
     app: [
       'app/js/src/**/*.js',
       'app/js/index.js',
@@ -29,7 +27,7 @@ const
 
 gulp.task('default', ['serve', 'watch']);
 
-gulp.task('sass', (done) => {
+gulp.task('sass', () => {
   return gulp.src(paths.sass)
     .pipe(sourcemaps.init({ largeFile: true }))
     .pipe(sass())
@@ -45,7 +43,7 @@ gulp.task('lint', () => {
   return gulp.src(paths.app)
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('watch', () => {
@@ -79,11 +77,11 @@ gulp.task('source', () => {
     }))
     .pipe(concat('poppy.min.js', { newLine: ';' }))
     .pipe(ngAnnotate({ add: true }))
-    .pipe(uglify({ mangle: true }))
+    // .pipe(uglify({ mangle: true }))
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
-})
+});
 
 gulp.task('vendor', () => {
   return gulp.src(
@@ -100,6 +98,6 @@ gulp.task('vendor', () => {
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
-})
+});
 
 gulp.task('build', ['source']);

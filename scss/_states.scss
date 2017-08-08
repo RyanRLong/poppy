@@ -1,0 +1,25 @@
+.enter {
+  -webkit-animation: fadeIn .25s;
+  animation: fadeIn .25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1; //animation-direction: alternate;
+}
+
+.exit {
+  -webkit-animation: fadeOut .25s;
+  animation: fadeOut .25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1; //animation-direction: alternate;
+}
+
+.idle {
+  opacity: .85;
+}
+
+.pause {
+  -webkit-animation: paused 1s;
+  animation: paused 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1; //animation-direction: alternate;
+  opactiy: 1;
+}

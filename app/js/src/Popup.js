@@ -5,15 +5,15 @@ class Popup { //eslint-disable-line
     this.element.setAttribute('class', `popup-${type}`);
     this.element.textContent = text;
     this.currentTimers = [];
-    this.onClick(this.deleteMe);
     this
+      .onClick(this.deleteMe)
+      .onMouseOver(this.setPause)
+      .onMouseOut(this.setUnpause)
       .attachCloseButton()
       .addClass("enter")
-      .setIdle(10000)
-      .setExit(60000)
-      .setDestroy(60350)
+      .setExit(10000)
+      .setDestroy(10350)
       .render();
-
     return Object.freeze(this);
   }
 
@@ -32,19 +32,29 @@ class Popup { //eslint-disable-line
     return this;
   }
 
-  deleteMe() {
-    this.clearAllTimers();
-    this.setExit(0);
-    this.setDestroy(250);
+  onMouseOver(func) {
+    this.element.onmouseover = func.bind(this);
+    return this;
   }
 
-  setIdle(milliseconds) {
-    const timer = setTimeout(() => {
-      this.removeClass("enter");
-      this.addClass("idle");
-    }, milliseconds);
-    this.currentTimers.push(timer);
+  onMouseOut(func) {
+    this.element.onmouseout = func.bind(this);
     return this;
+  }
+
+  setPause() {
+    this.clearAllTimers();
+    this.addClass("pause");
+    this.removeClass("enter");
+    this.removeClass("exit");
+    this.removeClass("idle");
+  }
+
+  setUnpause() {
+    this.removeClass("pause");
+    this.addClass("idle");
+    this.setExit(10000);
+    this.setDestroy(10250);
   }
 
   setExit(miliseconds) {
@@ -66,6 +76,13 @@ class Popup { //eslint-disable-line
 
   destroy() {
     this.element.parentNode.removeChild(this.element);
+    return this;
+  }
+
+  deleteMe() {
+    this.clearAllTimers();
+    this.setExit(0);
+    this.setDestroy(250);
   }
 
   clearAllTimers() {
@@ -81,13 +98,8 @@ class Popup { //eslint-disable-line
   }
 
   attachCloseButton() {
-    const self = this;
     const closeButton = document.createElement('div');
     closeButton.setAttribute('class', 'close-thik');
-    closeButton.onclick = function() {
-      self.clearAllTimers();
-      self.setDestroy(0);
-    };
     this.element.appendChild(closeButton);
     return this;
   }
